@@ -130,7 +130,7 @@ class CALayer(nn.Module):
     y=self.conv_2(y)
     y_fun2 = nn.Sigmoid()
     y=y_fun2(y)
-    return x * y  #n*c*h*w和n*1*1*w是可以相乘的
+    return x * y 
 
 
 class RCAB(nn.Module):        
@@ -881,7 +881,7 @@ class MAXIM(nn.Module):
 
 
       # start decoder. Multi-scale feature fusion of cross-gated features
-      for i in reversed(range(self.depth)):  # 
+      for i in reversed(range(self.depth)):  
         # use larger blocksize at high-res stages
         block_size = self.block_size_hr if i < self.high_res_stages else self.block_size_lr
         grid_size = self.grid_size_hr if i < self.high_res_stages else self.block_size_lr
